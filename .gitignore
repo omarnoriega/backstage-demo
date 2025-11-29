@@ -13,7 +13,7 @@ coverage
 
 # Dependencies
 node_modules/
-
+backstage/
 # Yarn files
 .pnp.*
 .yarn/*
