@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/debian
 {
-	"name": "Spotify Backstage Dev Container",
+	"name": "Backstage Dev Container",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
@@ -10,7 +10,7 @@
 	"features": {
 		"ghcr.io/devcontainers/features/node:1": {
 			"nodeGypDependencies": true,
-			"version": "18",
+			"version": "22",
 			"nvmVersion": "latest"
 		},
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {}

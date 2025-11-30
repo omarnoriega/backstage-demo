@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_USER: backstage_user
+      POSTGRES_PASSWORD: backstage_pass
+      POSTGRES_DB: backstage_db
+    ports:
+      - "5432:5432"
+    networks:
+      - backstage_net
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backstage:
+    image: ghcr.io/backstage/backstage:latest
+    container_name: backstage
+    depends_on:
+      - postgres
+    environment:
+      # Configuración genérica de conexión a la base de datos
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: backstage_user
+      POSTGRES_PASSWORD: backstage_pass
+      POSTGRES_DB: backstage_db
+    ports:
+      - "7007:7007"
+    networks:
+      - backstage_net
+
+networks:
+  backstage_net:
+    driver: bridge
+
+volumes:
+  postgres_data:

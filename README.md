@@ -15,15 +15,24 @@ Este proyecto tiene como proposito probar las capacidades del plugin Backstage A
 
 Con este plugin, los usuarios de Backstage pueden hacer preguntas En lenguaje natural y recibir respuestas basadas en la propia documentación y metadatos.
 
-### Stack
-Utilizaremos el proyecto de Backstae para el despliegue localmente usando devcontainer
+### Instrcucciones
+- Configurar Docker Desktop
+- Configurar DevContainer en VSCode
+- Crear App de Backstage
+- Configurar BD Postgresql
+
 
 Crear App
 ```
 npx @backstage/create-app@latest
 ```
 
-```sh
-yarn install
-yarn start
+Configurar Postgresql
+```
+yarn --cwd packages/backend add pg
+```
+
+Iniciar Backstage en ambiente Dev
+```
+yarn dev
 ```
