@@ -7,7 +7,6 @@ services:
     environment:
       POSTGRES_USER: backstage_user
       POSTGRES_PASSWORD: backstage_pass
-      POSTGRES_DB: backstage_db
     ports:
       - "5432:5432"
     networks:
@@ -16,7 +15,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   backstage:
-    image: ghcr.io/backstage/backstage:latest
+    image: kyndryl/backstage
     container_name: backstage
     depends_on:
       - postgres
@@ -26,12 +25,17 @@ services:
       POSTGRES_PORT: 5432
       POSTGRES_USER: backstage_user
       POSTGRES_PASSWORD: backstage_pass
-      POSTGRES_DB: backstage_db
     ports:
       - "7007:7007"
     networks:
       - backstage_net
-
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports:
+      - 8080:8080
+    networks:
+      - backstage_net
 networks:
   backstage_net:
     driver: bridge

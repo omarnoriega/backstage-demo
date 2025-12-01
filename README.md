@@ -25,14 +25,21 @@ Con este plugin, los usuarios de Backstage pueden hacer preguntas En lenguaje na
 Crear App
 ```
 npx @backstage/create-app@latest
+yarn install
+yarn tsc
 ```
 
-Configurar Postgresql
+Añadir Postgresql
 ```
 yarn --cwd packages/backend add pg
 ```
 
 Iniciar Backstage en ambiente Dev
 ```
-yarn dev
+yarn start
+```
+
+Iniciar con Compose
+```
+docker compose up -d
 ```
